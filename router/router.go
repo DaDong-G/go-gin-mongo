@@ -1,4 +1,5 @@
 package router
+
 import (
 	"github.com/gin-gonic/gin"
 	"seo-content/api"
@@ -7,6 +8,7 @@ import (
 func InitRouters() *gin.Engine {
 	router := gin.Default()
 	router.GET("/", api.IndexApi)
+	router.GET("/content-management", api.GetCatagory)
 	return router
 }
 
@@ -18,7 +20,6 @@ func InitRouters() *gin.Engine {
 //router.PATCH("/somePatch", patching)
 //router.HEAD("/someHead", head)
 //router.OPTIONS("/someOptions", options)
-
 
 // 一 、 获取路径中的参数
 //此规则能够匹配/user/john这种格式，但不能匹配/user/ 或 /user这种格式
@@ -36,7 +37,6 @@ func InitRouters() *gin.Engine {
 //	c.String(http.StatusOK, message)
 //})
 
-
 //二 、 获取Get参数
 //router.GET("/welcome", func(c *gin.Context) {
 //	// 此方法可以为默认值
@@ -44,7 +44,6 @@ func InitRouters() *gin.Engine {
 //	lastname :=  c.Request.URL.Query().Get("lastname") // 可以简写 c.Query
 //	c.String(http.StatusOK, "Hello %s %s", firstname, lastname)
 //})
-
 
 // 三、 获取Post参数
 //router.POST("/form_post", func(c *gin.Context) {
@@ -97,7 +96,6 @@ func InitRouters() *gin.Engine {
 //	v2.POST("/submit", submitEndpoint)
 //	v2.POST("/read", readEndpoint)
 //}
-
 
 // 七 使用中间件
 // 创建一个不包含中间件的路由器
